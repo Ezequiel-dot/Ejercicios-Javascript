@@ -1,0 +1,15 @@
+
+   
+   
+   
+   {
+          "nombre":"eze",
+          "edad":"17",
+          "booleano":"true",
+          "arreglo":["corre","camina","salta"],
+
+          "objeto":{
+            "insta":"ezeosella",
+            "facebook":"ezequiel osella"
+          }
+        }

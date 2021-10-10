@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aprendiendo javascrip</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+<body>
+  
+	<h1>Aprendiendo javascrip</h1>
+
+	
+	
+<script>
+
+//Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+
+function frase(cadena = ""){
+	if(cadena == ""){
+		console.log("no se ha ingresado ningun caracter")
+	}else{
+		console.log(`tenes ${cadena.length} caracteres`)
+	}
+	
+	
+}
+
+//frase()
+
+
+
+
+
+function frase2(cadena2 ="" , numeroDeCaracteres = undefined){
+	if(!cadena2){
+		console.warn("no se ingreso ningun caracter en la frase")
+	}else{
+		if(numeroDeCaracteres === undefined){
+			console.warn("no se ingrso el numero de caracteres a recortar")
+		}else{
+			console.log(cadena2.slice(0,numeroDeCaracteres))
+		}
+		}
+
+		//es lo mismo de ambas maneras
+		(!cadena2)
+	?console.warn("no se ingreso ningun caracter en la frase")
+	:numeroDeCaracteres === undefined
+	?console.warn("no se ingrso el numero de caracteres a recortar")
+	:console.log(cadena2.slice(0,numeroDeCaracteres))
+
+	}
+
+// frase2("hcdicbe", 3)
+
+
+
+    //SLICE
+
+ var cadena1 = "La mañana se nos echa encima.";
+var cadena2 = cadena1.slice(3, -2);
+
+
+
+ function frase3(cadena3 = "", numeroPalabras = undefined){
+	(!cadena3)
+	?console.warn("no se ingreso ningun caracter en la frase")
+	:(numeroPalabras === undefined)
+	?console.warn("no se ingreso el numerro de palabras")
+	:console.info(cadena3.split(numeroPalabras))
+ }
+
+
+
+//frase3("vdv,vf,vs,dcv,fvc,vde","")
+
+
+
+/*
+const frase = (cadena = "", veces = undefined)=>{
+if(!cadena) return console.warn("no se ingreso ningun texto")
+if(veces === undefined) return console.warn("no se ingreso el numero de veces")
+if(veces === 0)return console.warn("el numero de veces no puede ser cero")
+if(Math.sign(veces) === -1)return console.error("el numero de veces no puede ser negativo")
+
+for(let i = 1; i <= veces; i++){
+console.log(`${cadena},${i}`)
+
+}
+}
+
+
+
+frase("hola", 10)
+frase("", 10)
+frase("hola",)
+frase("hola", 0)
+frase("hola", -10)
+*/
+
+//utilizar reverse y join
+const revertirFrase = (cadena="")=>{
+	(!cadena)
+	?console.warn("no ingresaste ninguna frase")
+	:console.info(cadena.split("").reverse().join(""))
+}
+
+
+//revertirFrase("hola")
+
+
+
+const repetirPalabra = (cadena="",palabra="")=>{
+	
+	if(!cadena)return console.warn("no ingresaste cadena")
+	if(!palabra)return console.warn("no ingresaste palabra")
+
+
+	let i = 0
+	let contador = 0
+
+	while(i !== -1){
+		i = cadena.indexOf(palabra,i)
+		if(i !== -1){
+			i++
+			contador++
+		}
+	}
+
+	return console.info(`la palabra ${palabra} se repite ${contador} veces`)
+}
+
+//repetirPalabra("hola mundo,chauo mundo", "mundo")
+
+
+
+const palabra = (frase="")=>{
+	if(!frase)return console.warn("no se ingreso frase")
+
+	frase = frase.toUpperCases()
+	
+	let fraseAlReves = frase.split("").reverse().join("")
+
+	
+
+	if(frase === fraseAlReves){
+		console.info(true)
+	}else{
+		console.info(false)
+	}
+}
+
+//palabra("Holaloh")
+
+
+const eliminarLetras = (frase = "", caracter = "")=>{
+	if(!frase)return console.warn("no se ingreso frase")
+	if(!caracter){
+		console.warn("no se ingreso caracter")
+	}else{
+		console.info(frase.replace(new RegExp (caracter,"ig"),""))
+	}
+}
+
+//eliminarLetras("xy1,xy3,xy2,xy5,xyz","xy")
+
+
+
+
+const aleatorio = ()=> console.info(Math.round(Math.random() * 100)+500)
+
+//aleatorio()
+
+
+
+
+const capicua = (numero = 0)=>{
+	if(!numero)return console.warn("no se ingreso numero")
+	if(typeof numero !== "number")return console.error("se ha ingresado un texto en lugar de un numero")
+
+	
+	numero = numero.toString()   //transforma el number en string
+	let alReves = numero.split("").reverse().join("")
+
+	return(numero === alReves)
+	?console.info("si es capicua")
+	:console.info("no es capicua")
+}
+
+
+//capicua({})
+//capicua()
+//capicua("2")
+//capicua(223)
+//capicua(22)
+
+
+
+
+
+const factorial = (numero = undefined)=>{
+	if(!numero)return console.warn("no se ha ingresado un numero")
+	if(typeof numero !== "number")return console.error("lo ingresado no fue un numero")
+	if(numero === 0)return console.warn("el numero cero no se puede dividir")
+	if(Math.sign(numero) === -1)return console.warn("el numero negativo no se puede dividir")
+
+	let factorial = 1
+
+	for(let i = numero;i > 1;i--){
+		factorial = factorial * i
+	}
+
+	return console.info(`el factorial de ${numero} es ${factorial} `)
+}
+
+
+//factorial(5)
+
+
+
+const numeroPrimo = (numero = undefined)=>{
+	let divisible = false
+	for(let i = 2;i < numero;i++){
+		if((numero % i)===0){
+			divisible = true
+			break
+		}
+	}
+
+	return(divisible)
+	?console.info("el nunmero no es primo")
+	:console.info("el numero es primo")
+}
+
+//numeroPrimo(2)
+//numeroPrimo(3)
+//numeroPrimo(5)
+//numeroPrimo(7)
+//numeroPrimo(13)
+//numeroPrimo(17)
+
+
+const numeroPar = (numero = undefined)=>{
+
+	
+	if((numero % 2) === 0){
+		console.info("numero par")
+	}else{
+		console.info("impar")
+	}
+
+
+
+}
+
+//numeroPar(5)
+
+
+
+const conversorDeUnidades=(grados = undefined,unidad = undefined)=>{
+	if(grados === undefined)return console.warn("no ingresaste los grados")
+	if(unidad === undefined)return console.warn("no ingresaste la unidad")
+	if(typeof unidad !== "string")return console.error("lo ingresado no fue un numero")
+	
+	if(unidad.length !== 1 || !/c|f/.test(unidad) )return console.error("unidad ingresada incorrectamente")
+
+	if(unidad === "c"){
+		return console.info(`${Math.round(grados*9/5)+32}`)
+	}
+
+	if(unidad === "f"){
+		return console.info(`${Math.round((grados-32)*(5/9))}`)
+	}
+
+}
+
+//conversorDeUnidades(100,"c")
+//conversorDeUnidades(100,"f")
+
+
+
+
+const conversorBinarioDecimal = (numero=undefined, base=undefined)=>{
+
+	if(base === 2){
+		console.info(`${parseInt(numero,base)} `)
+	}else if(base === 10){
+		console.info(`${numero.toString(2)} `)//el to string lo convierte a frase,pero si le pongo un dos adentro lo convierte a binario o cualquier otra unidad
+	}else{
+		console.error("la base a convertir no existe")
+	}
+
+
+}
+
+//conversorBinarioDecimal(10,105)
+
+
+
+const descuento = (numero=undefined, oferta=undefined)=>{
+
+
+	console.info(`El precio final es ${numero-(oferta*numero/100)}`)
+}
+
+//descuento(80,0)
+
+
+
+const calcularAnios = (fecha= undefined)=>{
+	if(!fecha)return console.warn("no ingresaste fecha")
+	if(!(fecha instanceof Date))return console.warn("no ingresaste fecha correctamente")
+
+		let fecha1 = new Date().getTime()-fecha.getTime()
+		let anios = 1000*60*60*24*365
+		let fechaFinal1 = Math.floor(fecha1/anios)
+
+
+		return(Math.sign(fechaFinal1) === -1)
+		?console.info(`faltan ${Math.abs(fechaFinal1)} anios para esa fecha`)
+		:(Math.sign(fechaFinal1) === 1)
+		?console.info(`han pasado ${fechaFinal1} desde ${fecha.getFullYear()}`)
+		:console.info("estamos en ese mismo año")
+}
+
+
+//calcularAnios(new Date)
+//calcularAnios(new Date(1999,4,7))
+//calcularAnios(new Date(2051,5,3))
+
+
+const contadorLetras=(frase="")=>{
+if(!frase)return console.warn("no se ingreso frase")
+if(typeof frase !== "string")return console.error("no se ingreso frase correctamente")
+
+
+let vocales = 0
+let consonantes = 0
+frase= frase.toLocaleLowerCase()
+
+for (let letras of frase) {
+
+	if(/[aeiouáéíóú]/.test(letras))vocales++
+	
+	if(/[qwrtypñlkjhgfdszxcvbnm]/.test(letras))consonantes++
+	
+}
+
+	console.info(`vocales = ${vocales}<br>
+	consonantes = ${consonantes}`)
+
+	console.info({
+		vocales,
+		consonantes
+	})
+
+}
+
+//contadorLetras("aeAAaeadgdgdr")
+
+
+const validarNombre = (nombre="",mail="")=>{
+	if(!nombre)return console.warn("no se ingreso nombre")
+	if(typeof nombre !== "string")return console.error("no se ingreso nombre correctamente")
+	if(!mail)return console.warn("no se ingreso mail")
+	
+	let exp = /^[A-Za-záéíóú\s]+$/g.test(nombre)
+
+	let exp2 =  /^[a-z0-9]+[a-z0-9\_\-\.]*[a-z0-9]+@{1}[a-z0-9]{2,128}\.([a-z0-9]{2,6}(\.[a-z0-9]{2,4})?)+$/g.test(mail)
+
+	return(exp && exp2)
+	?console.info("dato correcto")
+	:console.info("dato incorrecto")
+	
+	
+}
+
+//validarNombre("eze zee","ezeosella343gmail.com")
+
+
+
+
+const cualquierPatron = (cadena="",patron=undefined)=>{
+	if(!cadena)return console.warn("no se ingreso cadena")
+	if(typeof cadena !== "string")return console.error("no se ingreso cadena correctamente")
+	if(!patron)return console.warn("no se ingreso patron")
+	if(!(patron instanceof RegExp))return console.error("no se ingreso patron correctamente")
+	
+	let exp = patron.test(cadena)
+
+	return(exp)
+	?console.info("Si cumple con el patron")
+	:console.warn("NO cumple con el patron")
+	
+	
+}
+
+//cualquierPatron("ezejccen4774@gmailcom",/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i)
+
+
+const elevarCuadrado = (arr = undefined)=>{
+	if(!arr)return console.warn("no se ingreso arraglo")
+	if(!(arr instanceof Array))return console.warn("lo ingresado no es un arraglo")
+	if(arr.length === 0)return console.warn("el arreglo no tiene numeros")
+
+	for (let num of arr) {
+		if(typeof num !== "number")return console.error("lo ingresado en el arreglo no es un numero")
+	}
+
+	const newArr = arr.map(el=>el*el)
+
+	return console.info(`el numero ${arr} al cuadrado es ${newArr}`)
+}
+
+//elevarCuadrado()
+//elevarCuadrado("xhyswi")
+//elevarCuadrado([])
+//elevarCuadrado(["ncouj"])
+//elevarCuadrado([2,4,5])
+
+
+
+const numeroMinMax = (arr = undefined)=>{
+	if(!arr)return console.warn("no se ingreso arraglo")
+	if(!(arr instanceof Array))return console.warn("lo ingresado no es un arraglo")
+	if(arr.length === 0)return console.warn("el arreglo no tiene numeros")
+
+	for (let num of arr) {
+		if(typeof num !== "number")return console.error("lo ingresado en el arreglo no es un numero")
+	}
+
+
+	console.info(`El arreglo original es ${arr} \n Su numero mayor es ${Math.max(...arr)}\n Su numero menor es ${Math.min(...arr)} `)
+
+}
+
+//numeroMinMax([-1,2,4,6,9,55,111])
+
+
+
+const numeroParImpar = (arr = undefined)=>{
+	if(!arr)return console.warn("no se ingreso arraglo")
+	if(!(arr instanceof Array))return console.warn("lo ingresado no es un arraglo")
+	if(arr.length === 0)return console.warn("el arreglo no tiene numeros")
+
+	for (let num of arr) {
+		if(typeof num !== "number")return console.error("lo ingresado en el arreglo no es un numero")
+	}
+
+	console.info({
+	Pares:arr.filter(num=> num%2 === 0),
+	Impares:arr.filter(num=> num%2 === 1),
+
+	asc: arr.map(el=>el).sort(),
+	desc: arr.map(el=>el).sort().reverse(),
+
+	SinDuplicados: arr.filter((value,index,self)=>self.indexOf(value)===index),
+
+	SinDuplicados2: [...new Set(arr)],
+
+	promedio:	arr.reduce((total,num,index,arr)=>{
+		total+=num
+		
+		if(index === arr.length-1){
+			return `El promedio de ${arr.join(" + ")} es ${Math.round(total / arr.length)}`
+		}else{
+			return total
+		}
+	})
+})
+
+
+
+}
+
+//numeroParImpar([2,5,7,2,6,8,4,7,2,6,9,4,2,6,9,0,5])
+
+
+
+/*     Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, 
+Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, 
+Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, 
+Thriller, War, Western.      */
+
+
+class Pelicula{
+	constructor({id,titulo,director,estreno,pais,genero,calificacion}){
+		this.id=id;
+		this.titulo=titulo;
+		this.director=director;
+		this.estreno=estreno;
+		this.pais=pais;
+		this.genero=genero;
+		this.calificacion=calificacion;
+
+		this.validarIMDB(id)
+		this.validarDirector(director)
+		this.validarTitulo(titulo)
+		this.validarEstreno(estreno)
+		this.validarPais(pais)
+		this.validarGenero(genero)
+		this.validarCalificacion(calificacion)
+	}
+
+	static get listaGeneros(){
+		return["Action","Adult", "Adventure", "Animation", "Biography", "Comedy", 
+"Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", 
+"Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", 
+"Thriller", "War", "Western"]
+	}
+
+	static generosAceptados(){
+		return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(", ")}`)
+	}
+
+	validarCadena(propiedad,valor){
+		if(!valor)return console.warn(`No se ingreso valor ${propiedad}`)
+		if(typeof valor !== "string")return console.error("Lo ingresado no es un valor")
+		return true
+	}
+
+	validarNumero(propiedad,valor){
+		if(!valor)return console.warn(`No se ingreso valor ${propiedad}`)
+		if(typeof valor !== "number")return console.error(`Lo ingresado no es un valor ${propiedad}`)
+		return true
+	}
+
+	validarLongitud(propiedad,valor,longitud){
+		if(valor.length > longitud) return console.error(`${propiedad} "${valor}" 
+		sobrepasa el limite de caracteres (${longitud})`)
+
+		return true
+	}
+
+	validarArreglo(propiedad,valor){
+		if(!valor)return console.warn(`No se ingreso valor ${propiedad}`)
+		if(!(valor instanceof Array))return console.error(`Lo ingresado no es un valor ${propiedad}`)
+		if(valor.length === 0) return console.error("el arreglo no contiene nada adentro")
+		for (let cadena of valor) {
+			if(typeof cadena !== "string") return console.error("lo que contiene el arreglo no es una cadena")
+		}
+		
+		return true
+	}
+
+	validarTitulo(titulo){
+		if(this.validarCadena("titulo" , titulo)){
+		this.validarLongitud("titulo" , titulo , 100)
+		}
+	}
+
+	validarDirector(director){
+		if(this.validarCadena("director" , director)){
+		this.validarLongitud("director" , director , 50)
+		}
+	}
+
+	validarEstreno(estreno){
+		if(this.validarNumero("estreno",estreno)){
+			if(!/^([0-9]){4}$/.test(estreno)){
+				return console.error(`El año de estreno ${estreno} ingresado es incorrecto `)
+			}
+		}
+	}
+
+	validarPais(pais){
+		this.validarArreglo("pais",pais)
+	}
+
+	validarGenero(genero){
+		if(this.validarArreglo("genero",genero)){
+			for (let gen of genero){
+				if(!Pelicula.listaGeneros.includes(gen)){
+				 console.error(`El genero ${genero} no esta permitido`)
+				 Pelicula.generosAceptados()
+				}
+			}
+		}
+	}
+
+	validarIMDB(id){
+		if(this.validarCadena("IMDB id",id)){
+			if(!/^([a-z]){2}([0-9]){7}$/.test(id)){
+				return console.error(`El IMDB id ${id} ingresado es incorrecto `)
+			}
+
+		}
+		
+		
+	}
+
+	validarCalificacion(calificacion){
+		if(this.validarNumero("calificacion",calificacion)){
+			if(calificacion < 0 || calificacion > 10){
+				return console.error("La calificacion tiene que ser un numero entre 0 y 10")
+			}else{
+				return this.calificacion = calificacion.toFixed(1)
+			}
+		}
+	}
+
+	mostrarPelicula(){
+		console.info(`FICHA TECNICA:\nTitulo:${this.titulo}\nDirector:${this.director}\nAño:${this.estreno}\nPais:${this.pais.join("-")}\nGenero:${this.genero.join(",")}\nCalificacion:${this.calificacion}\nIMDB id:${this.id}
+		`)
+	}
+
+}
+
+const peli = new Pelicula({
+	id:"tt2348523",
+	titulo:"rapidos y furiosos",
+	director:"dicaprio",
+	estreno: 2023,
+	pais:["USA","Inglaterra"],
+	genero:["Adventure","News","autos"],
+	calificacion:8.9999
+})
+const peli1 = new Pelicula({
+	id:"tt2348523",
+	titulo:"titanic",
+	director:"dicaprio",
+	estreno: 2023,
+	pais:["USA","Inglaterra"],
+	genero:["Adventure","News"],
+	calificacion:8.33333
+})
+
+peli.mostrarPelicula()
+peli1.mostrarPelicula()
+
+
+
+
+</script>
+</body>
+</html>

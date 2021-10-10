@@ -1,0 +1,61 @@
+{
+  "losSimpsons": [
+    {
+      "nombre": "Homero",
+      "edad": "50",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nombre": "March",
+      "edad": 46
+    },
+    {
+      "id": 3,
+      "nombre": "Bart",
+      "edad": 10
+    },
+    {
+      "id": 4,
+      "nombre": "Lisa",
+      "edad": 8
+    },
+    {
+      "id": 5,
+      "nombre": "Maggie",
+      "edad": 2
+    },
+    {
+      "nombre": "Bola de nieves",
+      "edad": "3",
+      "id": 6
+    },
+    {
+      "nombre": "bola de nieves",
+      "edad": "17",
+      "id": 7
+    }
+  ],
+  "amigos": [
+    {
+      "id": 1,
+      "nombre": "Ned",
+      "edad": 52
+    },
+    {
+      "id": 2,
+      "nombre": "Carl",
+      "edad": 49
+    },
+    {
+      "id": 3,
+      "nombre": "Lenny",
+      "edad": 49
+    },
+    {
+      "id": 4,
+      "nombre": "Apu",
+      "edad": 54
+    }
+  ]
+}
